@@ -3,8 +3,7 @@ const request = require('supertest');
 
 const {app} = require('./../server');
 const {Todo} = require('./../models/todo');
-// Автоматически выполняется после каждого теста
-// делаем базу данных снова пустой
+
 
 const todos = [{
   text: 'First test todo'
@@ -12,6 +11,7 @@ const todos = [{
   text: 'Second test todo'
 }];
 
+// Автоматически выполняется перед каждым тестом
 
 beforeEach((done) => {
   Todo.remove({}).then(() => {
