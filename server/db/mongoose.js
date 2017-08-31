@@ -2,8 +2,6 @@
 // позволяет к примеру назначить валидацию и указывать ограничения для полей документов.
 let mongoose = require('mongoose');
 
-
-
 // К слову.
 // Promise изначально была библиотекой, используемой
 // mongoose, а затем перекачевала в язык.
@@ -14,7 +12,7 @@ mongoose.Promise = global.Promise;
 // для connect, mongoose не сделает все сам, он не
 // позволит вызывать операции обнровления пока
 // не произойдет окончательное подключение.
-mongoose.connect('mongodb://localhost:27017/TodoApp');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp');
 
 module.exports = {
   mongoose
